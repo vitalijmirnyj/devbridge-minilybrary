@@ -1,10 +1,8 @@
 package com.example.minilibrary.dto;
 
-public class BookDto {
+public class RatingDto {
 
     private int rating;
-
-    private String title;
 
     public int getRating() {
         return rating;
@@ -12,13 +10,5 @@ public class BookDto {
 
     public void setRating(int rating) {
         this.rating = rating;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }

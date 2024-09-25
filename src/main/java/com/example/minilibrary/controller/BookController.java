@@ -1,6 +1,6 @@
 package com.example.minilibrary.controller;
 
-import com.example.minilibrary.dto.BookDto;
+import com.example.minilibrary.dto.RatingDto;
 import com.example.minilibrary.model.Book;
 import com.example.minilibrary.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +37,14 @@ public class BookController {
         }
     }
 
-    @PutMapping("books")
-    public void rateBook(@RequestBody BookDto bookdto) {
+    @GetMapping("books/{id}")
+    public Book getBook(@PathVariable("id") int id) {
+        return bookService.getBookById(id);
+    }
 
-        bookService.updateRating(bookdto.getRating(), bookdto.getTitle());
+    @PutMapping("books/{id}")
+    public void rateBook(@PathVariable("id") int id, @RequestBody RatingDto bookdto) {
+
+        bookService.updateRating(id, bookdto.getRating());
     }
 }

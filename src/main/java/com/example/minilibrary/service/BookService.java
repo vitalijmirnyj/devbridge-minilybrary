@@ -33,11 +33,15 @@ public class BookService {
         return repository.findByRating(rating);
     }
 
-    public void updateRating(int rating, String title) {
-        repository.updateBookRating(rating, title);
+    public void updateRating(int id, int rating) {
+        repository.updateBookRating(id, rating);
     }
 
     public List<Book> getAllBooks() {
         return repository.findAll();
+    }
+
+    public Book getBookById(int id) {
+        return repository.findById(id).orElse(null);
     }
 }
